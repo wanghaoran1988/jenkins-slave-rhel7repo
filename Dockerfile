@@ -5,7 +5,6 @@ FROM openshift/base-rhel7
 USER root
 
 RUN export INSTALL_PKGS="java-1.8.0-openjdk-headless nss_wrapper" && \
-    yum-config-manager --disable rhel-7-server-nfv-rpms &&\
     yum install -y --enablerepo=rhel-7-server-ose-3.1-rpms $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all  && \

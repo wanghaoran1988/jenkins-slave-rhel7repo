@@ -3,7 +3,8 @@ FROM openshift/base-rhel7
 
 # Install headless Java
 USER root
-RUN ls -l /var/log/yum.log
+RUN ls -l /var/log/yum.log && \
+    chmod 644 /var/log/yum.log
 RUN export INSTALL_PKGS="java-1.8.0-openjdk-headless nss_wrapper" && \
     yum install -y --enablerepo=rhel-7-server-ose-3.1-rpms $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \

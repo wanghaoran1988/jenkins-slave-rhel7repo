@@ -6,7 +6,8 @@ USER root
 RUN ls -l /var/log/yum.log && \
     chmod 644 /var/log/yum.log
 RUN export INSTALL_PKGS="java-1.8.0-openjdk nss_wrapper" && \
-    yum-config-manager --enable oso-rhui-rhel-server-releases && \
+    yum repolist all && \
+    #yum-config-manager --enable oso-rhui-rhel-server-releases && \
    # yum install -y --enablerepo=rhel-7-server-ose-3.1-rpms $INSTALL_PKGS && \
 #RUN subscription-manager refresh 
     yum install -y  $INSTALL_PKGS 

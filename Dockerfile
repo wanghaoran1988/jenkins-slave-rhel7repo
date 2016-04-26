@@ -5,9 +5,9 @@ FROM openshift/base-rhel7
 USER root
 RUN ls -l /var/log/yum.log && \
     chmod 644 /var/log/yum.log
-RUN export INSTALL_PKGS="java-1.8.0-openjdk-headless nss_wrapper" && \
+RUN export INSTALL_PKGS="java-1.8.0-openjdk nss_wrapper" && \
    # yum install -y --enablerepo=rhel-7-server-ose-3.1-rpms $INSTALL_PKGS && \
-    yum install -y $INSTALL_PKGS && \
+    yum install -y --enablerepo=oso-rhui-rhel-server-releases $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all  && \
     mkdir -p /opt/app-root/jenkins && \

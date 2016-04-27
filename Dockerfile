@@ -5,8 +5,6 @@ FROM openshift/base-rhel7
 USER root
 RUN ls -l /var/log/yum.log && \
     chmod 644 /var/log/yum.log
-RUN subscription-manager register --username=qa@redhat.com --password=a85xH8a5w8EaZbdS && subscription-manager attach --pool=8a85f9823e3d5e43013e3ddd4e2a0977
-RUN yum repolist all 
 RUN export INSTALL_PKGS="java-1.8.0-openjdk nss_wrapper" && \
     #yum-config-manager --enable oso-rhui-rhel-server-releases && \
    # yum install -y --enablerepo=rhel-7-server-ose-3.1-rpms $INSTALL_PKGS && \

@@ -10,6 +10,7 @@ RUN ls -l /var/log/yum.log && \
    # yum install -y --enablerepo=rhel-7-server-ose-3.1-rpms $INSTALL_PKGS && \
 #RUN subscription-manager refresh 
  #   yum install -y  $INSTALL_PKGS 
+RUN yum-config-manager --disable rhel-7-server-nfv-rpms
 RUN yum-config-manager --disable epel >/dev/null || : && \
     INSTALL_PKGS="rss_wrapper java-1.8.0-openjdk a" &&   \
     yum install -y $INSTALL_PKGS && \
